@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/zotero-research-area-notes/2023-swift-agg-achieving-asymptotically-optimal-communication/"}
+{"dg-publish":true,"permalink":"/zotero_ResearchArea_notes/2023SwiftAggAchievingAsymptoticallyOptimalCommunication/"}
 ---
 
 
@@ -273,7 +273,7 @@ $$\sum_{n\in[N]\setminus D}\mathbf{W}_{n}=\left[\sum_{n\in[N]\setminus\mathbf{D}
    让我们定义：
    $$\mathbf{F}(x){\triangleq}\sum_{n=1}^{12}\mathbf{F}_{n}(x)=\sum_{k=1}^{9}x^{k-1}\sum_{n=1}^{12}\mathbf{W}_{n,k}+x^{9}\sum_{n=1}^{12}\mathbf{Z}_{n,1}+x^{10}\sum_{n=1}^{12}\mathbf{Z}_{n,2}$$
 
-  对于服务器接收到的$n ∈ [12]\backslash \{3\}$ ， Sn，可以验证Sn确实等于$\mathbb{F}_n(\alpha_1)，\mathbb{F}_n(\alpha_{2})，\mathbb{F}_n(\alpha_{4}),..., \mathbb{F}_n(\alpha_{12})$。
+  对于服务器接收到的$n ∈ [12]\backslash \{3\}$ ， Sn，可以验证Sn确实等于$\mathbb{F}(\alpha_1)，\mathbb{F}(\alpha_{2})，\mathbb{F}(\alpha_{4}),..., \mathbb{F}(\alpha_{12})$。
    
    由于F(x)是10次多项式函数，基于拉格朗日插值规则，服务器可以利用未被丢弃的用户的结果来恢复该多项式的所有系数。特别地，服务器可以使用恢复的多项式函数中的$x^k$ 、k ∈ [0 : 8]的系数来恢复$\begin{array}{r}{\sum_{n=1,\\{n \neq 3} }^{12}\mathbf{W}_{n}}\end{array}$。因此，服务器能够恢复幸存用户的本地模型的聚合并且满足正确性约束。
 
@@ -325,6 +325,9 @@ $$\sum_{n\in[N]\setminus D}\mathbf{W}_{n}=\left[\sum_{n\in[N]\setminus\mathbf{D}
 在本文中，我们提出了 SwiftAgg+，一种用于联邦学习中模型聚合的安全聚合协议，它实现了通信负载和网络连接之间的权衡。通过对用户进行分组，精心设计组内和组间的秘密共享和聚合方法，SwiftAgg+能够在最多D个退出用户的情况下实现正确聚合，并提供最坏情况下的安全保证，防止最多T个用户串通一个好奇的服务器。此外，SwiftAgg+可以通过选择不同深度的聚合树来灵活地控制每次训练迭代的延迟。与之前的安全聚合协议相比，SwiftAgg+显着降低了通信负载。对于 T = o(N ) 和 N − D = O(N )，就所需位数而言，SwiftAgg+ 中的服务器通信负载在割集下限的因子 1 内。此外，在均匀分布的本地模型的情况下，只要 T = o(N ) 且 D = o(N )，SwiftAgg+ 中的每用户通信负载就在割集下界的 logl lN 因子之内。
 ## Q10 下一步呢？有什么工作可以继续深入？
 
+### Ideas
+- 不知为何，感觉这篇文章有点点伪需求？因为之前的安全聚合并不需要用户之间两两有连接，table1的对比其实也看不出相对于其他方法的优势所在
+- 但是我们可以根据表格来思考一下，什么情况下，用什么方案会使得通信率较低
 
 ## New Concepts
 
